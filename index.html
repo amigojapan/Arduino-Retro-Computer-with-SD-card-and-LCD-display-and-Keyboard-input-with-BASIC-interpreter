@@ -23,7 +23,7 @@ This is a stand-alone computer that you can build easily<BR>
 <CENTER>
 <img src="diagram1.png"><BR>
 </CENTER>
-Create the SD card circuit as in (source http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1206874649 )<BR>
+Create the SD card circuit as in (source <a href=http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1206874649>http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1206874649 )</a><BR>
 <CENTER>
 <img src="SDcardDiagram.png"><BR>
 </CENTER>
@@ -34,6 +34,7 @@ for information on how to connect the keyboard to the arudino go here:<a href="h
 Download the software from <a href="https://github.com/amigojapan/Arduino-Retro-Computer-with-SD-card-and-LCD-display-and-Keyboard-input-with-BASIC-interpreter">https://github.com/amigojapan/Arduino-Retro-Computer-with-SD-card-and-LCD-display-and-Keyboard-input-with-BASIC-interpreter</a><BR>
 Unpack the 2 zip files into the libraries directory of your arduino software, restart the IDE<BR>
 I realize that few people will use the LCD module I used(which is a rare Japanese one), if someone uses a normal LCD remove the driver for mine, and replace all the print2nl() and print2 with lcd.print and lcd.printnl and send me a copy of the working sketch to usmpadow@gmail.com so I can put it up with this project.<BR>
+In case you do get your hards on the same LCD as I used, here is it's datasheet:<a href=http://akizukidenshi.com/download/SC2004CSWB.pdf>http://akizukidenshi.com/download/SC2004CSWB.pdf</a><BR>
 If you just want to try the BASIC interpreter, here are 2 more versions of it:<BR>
 this one only uses the SD card, and the Serial Terminal to communicate, no LCD screen required:
 <a href=https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator>https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator</a><BR>
