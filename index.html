@@ -28,14 +28,32 @@ Create the SD card circuit as in (source <a href=http://www.arduino.cc/cgi-bin/y
 <CENTER>
 <img src="SDcardDiagram.png"><BR>
 </CENTER>
-WARNING, the SDcard library does not use 10 FAT file system. so any data you may have on the SD card will be lost. you will need to reformat the SD card to use it again on a PC.<BR>
+WARNING, the SDcard library does not use a FAT file system. so any data you may have on the SD card will be lost. you will need to reformat the SD card to use it again on a PC.<BR>
 <!-- begin htmlcommentbox.com -->
-The keyboard you use MUST be a PS2 keyboard(PS2 as in the old IBMs, not 0)<BR>
+The keyboard you use MUST be a PS2 keyboard(PS2 as in the old IBMs, not PlayStation2)<BR>
 for information on how to connect the keyboard to the arudino go here:<a href="http://www.arduino.cc/playground/Main/PS2Keyboard">http://www.arduino.cc/playground/Main/PS2Keyboard</a><BR>
 Download the software from <a href="https://github.com/amigojapan/Arduino-Retro-Computer-with-SD-card-and-LCD-display-and-Keyboard-input-with-BASIC-interpreter">https://github.com/amigojapan/Arduino-Retro-Computer-with-SD-card-and-LCD-display-and-Keyboard-input-with-BASIC-interpreter</a><BR>
 Unpack the 2 zip files into the libraries directory of your arduino software, restart the IDE<BR>
 I realize that few people will use the LCD module I used(which is a rare Japanese one), if someone uses a normal LCD remove the driver for mine, and replace all the print2nl() and print2 with lcd.print and lcd.printnl and send me a copy of the working sketch to usmpadow@gmail.com so I can put it up with this project.<BR>
 In case you do get your hards on the same LCD as I used, here is it's datasheet:<a href=http://akizukidenshi.com/download/SC2004CSWB.pdf>http://akizukidenshi.com/download/SC2004CSWB.pdf</a><BR>
+<BR>
+Usmar Padow's BASIC commands:(COMMANDS MUST BE IN UPPER CASE, YOU MUST MAKE A PROGRAM, DIRECT INTERPRETATION IS NOT IMPLEMENTED)<BR>
+LIST --- Displays each line of the current program line by line.<BR>
+RUN --- Runs the current program<BR>
+OPEN # === Opens or creates a new program. the # parameter can be from 0 to 9. on bootup program 0 is loaded<BR>
+L# PRINT "TEXT" --- prints a line of text (L# means Line Number)<BR>
+L# PRINT variable_name --- prints the contents of a variable<BR>
+L# INPUT variable_name --- prompts the user to input a number, and stores it in a variable<BR>
+L# variable_name=expression --- evaluates the expression and stores it in a variable. e.g. X=5+3<BR>
+L# IF expression THEN L# --- evaluates expression and goes to the line specified after THEN if the expression is true. e.g. IF X>3 THEN 10<BR>
+L# FOR variable_name=# to # --- makes a FOR NEXT loop (I think this is buggy, I will work on fixing it)<BR>
+L# NEXT variable_name --- ends a FOR loop<BR>
+L# GOTO L# --- goes to the line number specified<BR>
+L# GOSUB L# --- goes to the line number specified and will return to the next line when a RETURN is encountered (it seems this might be buggy too. I will try to fix it)<BR>
+L# RETURN --- return to the next line after the last GOSUB<BR>
+<BR>
+Variables names must be a single letter of the alphabet <BR>
+<BR>
 If you just want to try the BASIC interpreter, here are 2 more versions of it:<BR>
 this one only uses the SD card, and the Serial Terminal to communicate, no LCD screen required:
 <a href=https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator>https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator</a><BR>
@@ -44,7 +62,7 @@ here are another few projects I did:<BR>
 <a href=http://amigojapan.github.com/Arduino-LED-Matrix-Display/>http://amigojapan.github.com/Arduino-LED-Matrix-Display/</a><BR>
 <a href=http://amigojapan.github.com/Logo-Programming-Game/>http://amigojapan.github.com/Logo-Programming-Game/</a><BR>
 <a href=http://amigojapan.github.com/web-JavaScript-programmable-scientific-calculator/>http://amigojapan.github.com/web-JavaScript-programmable-scientific-calculator/</a><BR>
-this one is still in alpha state, but I am very 0 about it, it is an 3D Programming Language made in Unity for teaching programming to beginners(look in source zip file inside assets subdirectory for a file called testscript.js, you will find examples of how to program in the language in the comments :
+this one is still in alpha state, but I am very excited about it, it is an 3D Programming Language made in Unity for teaching programming to beginners(look in source zip file inside assets subdirectory for a file called testscript.js, you will find examples of how to program in the language in the comments :
 <a href=https://github.com/amigojapan/3dpl>https://github.com/amigojapan/3dpl</a><BR>
 and here are some games I made in GameMaker windows executables, but they run in wine(click download on bottom right of web page):<BR>
 <a href=http://sandbox.yoyogames.com/games/92441-be-osama-terrorism-strategy-game>http://sandbox.yoyogames.com/games/92441-be-osama-terrorism-strategy-game</a><BR>
