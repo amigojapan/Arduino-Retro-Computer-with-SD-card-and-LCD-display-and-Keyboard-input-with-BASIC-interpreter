@@ -40,7 +40,7 @@ In case you do get your hards on the same LCD as I used, here is it's datasheet:
 Usmar Padow's BASIC commands:(COMMANDS MUST BE IN UPPER CASE, YOU MUST MAKE A PROGRAM, DIRECT INTERPRETATION IS NOT IMPLEMENTED)<BR>
 LIST --- Displays each line of the current program line by line.<BR>
 RUN --- Runs the current program<BR>
-OPEN # === Opens or creates a new program. the # parameter can be from 0 to 9. on bootup program 0 is loaded<BR>
+OPEN # --- Opens or creates a new program. the # parameter can be from 0 to 9. on bootup program 0 is loaded<BR>
 L# PRINT "TEXT" --- prints a line of text (L# means Line Number)<BR>
 L# PRINT variable_name --- prints the contents of a variable<BR>
 L# REM comment -- creates a comment in the program<BR>
@@ -57,6 +57,7 @@ to create a random number, you must set X to the minimum number then set Y to th
 20 Y=20<BR>
 30 N=RND<BR>
 40 PRINT N<BR>
+L# END --- ends the current execution of the program at current line<BR>
 this program will assign a random number between 10 and 20 to N and print it<BR>
 <BR>
 Variables names must be a single letter of the alphabet <BR>
