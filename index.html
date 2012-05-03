@@ -51,8 +51,16 @@ L# NEXT variable_name --- ends a FOR loop<BR>
 L# GOTO L# --- goes to the line number specified<BR>
 L# GOSUB L# --- goes to the line number specified and will return to the next line when a RETURN is encountered (it seems this might be buggy too. I will try to fix it)<BR>
 L# RETURN --- return to the next line after the last GOSUB<BR>
+to create a random number, you must set X to the minimum number then set Y to the macimum number, then call variable_name=RND, e.g.:<BR>
+10 X=10<BR>
+20 Y=20<BR>
+30 N=RND<BR>
+40 PRINT N<BR>
+this program will assign a random number between 10 and 20 to N and print it<BR>
 <BR>
 Variables names must be a single letter of the alphabet <BR>
+<BR>
+Programs that work on the Arduino Retro Computer are welcome to usmpadow@gmail.com<BR>
 <BR>
 If you just want to try the BASIC interpreter, here are 2 more versions of it:<BR>
 this one only uses the SD card, and the Serial Terminal to communicate, no LCD screen required:
