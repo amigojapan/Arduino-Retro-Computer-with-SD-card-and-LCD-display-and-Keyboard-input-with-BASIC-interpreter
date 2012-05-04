@@ -380,18 +380,15 @@ void  get_Line2(char RealLineNumber) {
 
 }
 
+
 //Spinelli's Basic interpreter, ported to arduino bu Usmar A Padow usmpadow@gmail.com
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int *callp,callstk[10];
-#define NumberOfNestedLoops 4
-int forln[NumberOfNestedLoops],forend[NumberOfNestedLoops],for_itteration[NumberOfNestedLoops];
-int var[100],CurrentLineNumber,quoted;
+int *callp,callstk[10],forln[10],forend[10],var[100],CurrentLineNumber,quoted;
 char buf[100],F[2];//size of buf might be reducible
 //char *ln[100],*p,*q,*x,*y,*z,*s,*d,*f;
 char *p,*q,*x,*y,*z,*s,*d,*f;
-
 
 char *findstr(char *s,char *o) {
         for(x=s;*x;x++){
@@ -696,23 +693,16 @@ void loop() {
                                                     	StackCount--;
                                                    	}
                                                     break;
-                                            case 'F':        // FOR X=10 TO 15
-                                                        char varname; int start; int end;
-                                                        sscanf(OneLine,"FOR %c=%i TO %i",&varname,&start,&end);
-                                                        //printf("FOR %c=%i TO %i\r\n",varname,start,end);
-                                                        for_itteration[varname]=start;
-                                                        forend[varname]=end;
-                                                        forln[varname]=CurrentLineNumber;
-                                                        var[varname]=start;
-                                                        break;
-                                            case 'N':        // NEXT
-                                                        sscanf(OneLine,"NEXT %c",&varname);
-                                                        if(for_itteration[varname]<forend[varname]) {//for loop has not ended
-                                                                for_itteration[varname]++;//increment itteration number;
-                                                                var[varname]=for_itteration[varname];
-                                                                CurrentLineNumber=forln[varname];//goto beginning of for loop
-                                                        }
-                                                        break;
+                                            case 'F':        // FOR 
+                                                    *(q=findstr(OneLine,"TO"))=0;
+                                                    p=OneLine+5;
+                                                    var[i=OneLine[3]]=eqexp();
+                                                    p=q+2;
+                                                    forend[i]=eqexp();
+                                                    forln[i]=CurrentLineNumber;
+                                                    break;
+                                            case 'N':        // NEXT 
+                                                    ++var[*d]<=forend[*d] && (CurrentLineNumber=forln[*d]);
                                       }
                                       //CurrentLineNumber++;
                               } 
