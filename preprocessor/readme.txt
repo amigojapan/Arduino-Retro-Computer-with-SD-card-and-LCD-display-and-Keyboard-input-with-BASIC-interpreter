@@ -1,3 +1,4 @@
+the preprocessor adds the lines and changes the labels to line numbers
 quckbasicpreprocessor.py converts labels to line numbers
 usage:
 python quckbasicpreprocessor.py AmericanFootball.qb
