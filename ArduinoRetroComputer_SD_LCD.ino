@@ -615,13 +615,13 @@ void loop() {
                                                   p=buf+5;
                                                   p[1]='\0';
                                                   sprintf(tmp,"%i",var[OneLine[6]]);
-                                                  newline();
+                                                  //newline();
                                                   print2nl(tmp);
                                             }
                                       }
                                       if(OneLine[0]=='I' && OneLine[1]=='N') {//if it is INPUT
                                             newline();
-                                            print2nl("INPUT NUMBER:");
+                                            //print2nl("INPUT NUMBER:");
 										    #ifdef __linux__
 											 	 gets(buf);
 										    #else
@@ -633,8 +633,10 @@ void loop() {
                                       if(OneLine[1]=='=') {//assignment
                                             if(OneLine[2]=='R' && OneLine[3]=='N'){//var=RND, you must set X to the minimum number first then Y to the maximum number: example 10 X=10 20 Y=20 30 N=RND  now N will contain a value between 10 and 20
                                                   var[OneLine[0]]=random(var['X'], var['Y']);
+                                                  continue;
                                             } else {//just assign
                                                   p=OneLine+2, var[*OneLine]=eqexp();p=OneLine+2, var[*OneLine]=eqexp();
+                                                  continue;
                                             }
                                       }
                                       switch(OneLine[0]) {
