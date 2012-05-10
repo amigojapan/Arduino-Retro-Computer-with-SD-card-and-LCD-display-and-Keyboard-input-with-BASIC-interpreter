@@ -14,22 +14,26 @@ REM  when O is 1 player is on the offence 0 is on deffence
 O=1
 GOTO kickoff
 menu:
+IF D=5 THEN ballchangesides
 L=T
 T=L+1
 REM 120 downs in one game
 IF T=120 THEN gameover
 info:
 PRINT "Score,YOU,COMP:"
+PRINT ""
 PRINT A
 PRINT B
 PRINT "[ENTER] TO CONTINUE"
 INPUT Q
 PRINT "Down,Yard"
+PRINT ""
 PRINT D
 PRINT E
 PRINT "[ENTER] TO CONTINUE"
 INPUT Q
 PRINT "1stDn,Turn of 120"
+PRINT ""
 C=F-E
 PRINT C
 PRINT T
@@ -41,7 +45,7 @@ PTINT "2)SHORTPASS 4)PUNT"
 PTINT "5)FIELD GOAL6)INFO"
 INPUT Q
 X=1
-Y=100+1
+Y=100
 N=RND
 IF Q=1 THEN longpass
 IF Q=2 THEN shortpass
@@ -68,16 +72,20 @@ D=1
 GOTO menu
 longpass:
 PRINT "LONG PASS"
+X=50
+Y=100
 IF N<10 THEN success
 GOTO fail
 shortpass:
 PRINT "SHORT PASS"
 X=1
-Y=50+1
+Y=50
 IF N<25 THEN success
 GOTO fail
 run:
 PRINT "RUN"
+X=1
+Y=100
 IF N<50 THEN success
 GOTO fail
 punt:
@@ -147,14 +155,25 @@ F=E+10
 GOTO menu
 touchdown:
 PRINT "TOUCHDOWN!"
-REM add extra point
 IF O=1 THEN add6pointsplayer
 L=B
 B=L+6
+PRINT "EXTRA POINT"
+X=1
+Y=2
+N=RND
+L=B
+B=L+N
 GOTO ballchangesides
 add6pointsplayer:
 L=A
 A=L+6
+PRINT "EXTRA POINT"
+X=1
+Y=2
+N=RND
+L=A
+A=L+N
 GOTO ballchangesides
 ai:
 REM ask my father how the computer should play
