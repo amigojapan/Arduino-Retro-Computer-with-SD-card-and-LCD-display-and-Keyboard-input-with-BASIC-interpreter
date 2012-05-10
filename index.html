@@ -19,6 +19,7 @@ Arduino Retro Computer with LCD display Keyboard and SD card and BASIC interpret
 Copyright 2011 Usmar A Padow usmpadow@gmail.com (also known as amigojapan on freenode IRC and on youtube)<BR>
 This is a stand-alone computer that you can build easily<BR>
 May 7 2012: Added a BASIC preprocessor made in python that allows you to write code withought line numbers and to use labels. the preprocessor adds the lines and changes the labels to line numbers. Also made an AmericanFootball BASIC game, as an example of how to use the preprocessor. Also made some small changes to the firmware, so make sure to update that too.<BR>
+May 10 2012: Fixed a bug that allowed only 127 lines of BASIC in one program, now allows 255 lines, I will increase this number when I get a chance. AmericanFootball.BAS now works, I have finally tested it. Update all your files!<BR>
 Update: I am working on the second version of the Arduino Retro Computer, which should display stuff on a TV. <a href=http://www.youtube.com/watch?v=DNcX7wJsR_A&list=UUG2hctPeJ4bb-T2oJWq7AxA&index=3&feature=plcp>here is a link with my first attempt at that</a><BR>
 <img src="ArduinoRetroComputer.jpg" height=315 width=270>
 <iframe width="560" height="315" src="http://www.youtube.com/embed/8m8IKQNJNZY" frameborder="0" allowfullscreen></iframe>
@@ -62,6 +63,24 @@ to create a random number, you must set X to the minimum number then set Y to th
 this program will assign a random number between 10 and 20 to N and print it<BR>
 <BR>
 Variables names must be a single letter of the alphabet <BR>
+<BR>
+Preprocessor:<BR>
+the preprocessor adds the lines and changes the labels to line numbers<BR>
+quckbasicpreprocessor.py converts labels to line numbers<BR>
+example usage:<BR>
+python quckbasicpreprocessor.py AmericanFootball.qb<BR>
+the new program will be stored in PROGRAM.BAS<BR>
+<BR>
+How to upload BASIC programs to the SD card withought having to type them out:<BR>
+Upload the SDmemBASIC.ino sketch to the arudino.<a href=https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator>https://github.com/amigojapan/BASIC-interpreter-for-arduino-that-uses-SD-memory-instead-or-RAM-and-ArduinoSimulator</a><BR>
+Use a terminal program like Tera Term, connect to your arduino(if it is terraterm, set the wait to 20ms for each char and 200ms for each line in setup=>Serial Port)<BR>
+if in windows use a text editor that supports unix new lines like geany<BR>
+Open the .BAS file in the text editor<BR>
+do Edit->Copy<BR>
+Open the terminal program and connect to the arudino at 9600bps<BR>
+do Edit->Paste<BR>
+(if terra term do Edit->Paste CR)<BR>
+reupload teh LCD sketch to tun the programs on LCD<BR>
 <BR>
 Programs that work on the Arduino Retro Computer are welcome to usmpadow@gmail.com<BR>
 <BR>
