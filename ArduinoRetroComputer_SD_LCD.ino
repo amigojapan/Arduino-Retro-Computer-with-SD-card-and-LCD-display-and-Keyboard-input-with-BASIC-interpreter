@@ -70,13 +70,13 @@
 #include<string.h>
 //we want this only to compule for the simulator, for the real arduino, we want to use the SD card
 
-//This setup is for the SC2004CSWB 20X4 LCD display, you will need to change this if you are using a different LCD display, and you dont need to use print2 on another display that is arduino compatible, just use lcd.print instead
+//This setup is for the HD44780 20X4 LCD display, you will need to change this if you are using a different LCD display, and you dont need to use print2 on another display that is arduino compatible, just use lcd.print instead
 #include<string.h>
 #include <LiquidCrystal.h>
 //LiquidCrystal lcd(12,11,2,3,4,5,6,7,8,9);       // my setup (matches original 4-bit example)
 LiquidCrystal lcd(A0, A1, 6, 7, 8, 9, A2, A3, A4, A5);
 
-//start SC2004CSWB driver
+//start HD44780 driver
 char buffer[20*4+1]="                                                                                ";//20*4 spaces
 int pos=0;
 void render_realloc() {
@@ -154,7 +154,7 @@ void cls() {
         strcpy(buffer,"                                                                                ");//20*4 spaces
         pos=0;
 }
-//end SC2004CSWB driver
+//end HD44780 driver
 
 //#include <PS2uartKeyboard.h>
 //PS2uartKeyboard keyboard;
